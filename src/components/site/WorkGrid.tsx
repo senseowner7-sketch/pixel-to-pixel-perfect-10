@@ -35,9 +35,40 @@ export function ProjectCard({ p, index }: { p: Project; index: number }) {
     </>
   );
   const cls = cn("group block focus-visible:outline-2 focus-visible:outline-accent", spanFor[p.orientation].split(" ").filter((c) => !c.startsWith("aspect")).join(" "));
-  if (p.caseStudyEnabled) return <Link to="/work/$slug" params={{ slug: p.slug }} className={cls}>{inner}</Link>;
-  if (external) return <a href={external} target="_blank" rel="noreferrer" className={cls}>{inner}</a>;
+  
+  // Instagram media already has its own clickable link.
+  // Avoid placing an anchor inside another anchor.
+  if (p.mediaType === "instagram" && p.instagramUrl) {
+    return <div className={cls}>{inner}</div>;
+  }
+
+  if (p.caseStudyEnabled) {
+    return (
+      <Link
+        to="/work/$slug"
+        params={{ slug: p.slug }}
+        className={cls}
+      >
+        {inner}
+      </Link>
+    );
+  }
+
+  if (external) {
+    return (
+      <a
+        href={external}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cls}
+      >
+        {inner}
+      </a>
+    );
+  }
+
   return <div className={cls}>{inner}</div>;
+
 }
 
 export function WorkGrid({ projects }: { projects: Project[] }) {
