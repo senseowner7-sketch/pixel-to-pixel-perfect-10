@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     id: "p01", slug: "tata-coffee-wake-up-the-world", title: "Tata Coffee", subtitle: "Wake Up the World",
     year: 2026, category: "AI Films", label: "AI Film / Spec Campaign / Creative Direction",
-    featured: true, displayOrder: 1, status: "published", tone: "coffee", orientation: "wide", mediaType: "placeholder",
+    featured: true, displayOrder: 1, status: "hidden", tone: "coffee", orientation: "wide", mediaType: "placeholder",
     description: "A speculative 30-second Tata Coffee campaign built around a simple thought: what if the entire city waited for your first cup of coffee before waking up?",
     brief: "Coffee advertising tends to sell aroma and beans. The challenge was to find an emotional, ownable idea for a 30-second film — and to produce it end-to-end with generative tools without it looking like an AI demo.",
     idea: "What if the city waited for your first sip?",
