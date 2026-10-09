@@ -53,10 +53,44 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+
+  
+{
+  id: "p12",
+  slug: "abhishek-traders",
+  title: "Abhishek Traders",
+  subtitle: "AI Video Advertisement",
+  year: 2026,
+  category: "AI Films",
+  label: "AI Advertisement",
+  featured: true,
+  displayOrder: 1,
+  status: "published",
+  thumbnail: "",
+  thumbnailAlt: "Abhishek Traders AI advertisement",
+  tone: "field",
+  orientation: "portrait",
+  mediaType: "instagram",
+  videoUrl: "",
+  instagramUrl: "https://www.instagram.com/reel/DeMi6nCy0zo/",
+  twitterUrl: "",
+  youtubeUrl: "",
+  description: "An AI-generated video advertisement for Abhishek Traders.",
+  brief: "",
+  idea: "",
+  roles: ["AI Video Production"],
+  tools: [],
+  process: [],
+  gallery: [],
+  learned: "",
+  caseStudyEnabled: false,
+},
+
+  
   {
     id: "p01", slug: "tata-coffee-wake-up-the-world", title: "Tata Coffee", subtitle: "Wake Up the World",
     year: 2026, category: "AI Films", label: "AI Film / Spec Campaign / Creative Direction",
-    featured: true, displayOrder: 1, status: "hidden", tone: "coffee", orientation: "wide", mediaType: "placeholder",
+    featured: false, displayOrder: 1, status: "hidden", tone: "coffee", orientation: "wide", mediaType: "placeholder",
     description: "A speculative 30-second Tata Coffee campaign built around a simple thought: what if the entire city waited for your first cup of coffee before waking up?",
     brief: "Coffee advertising tends to sell aroma and beans. The challenge was to find an emotional, ownable idea for a 30-second film — and to produce it end-to-end with generative tools without it looking like an AI demo.",
     idea: "What if the city waited for your first sip?",
