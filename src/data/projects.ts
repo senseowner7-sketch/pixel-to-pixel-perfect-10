@@ -66,7 +66,7 @@ export const projects: Project[] = [
   featured: true,
   displayOrder: 1,
   status: "published",
-  thumbnail: "",
+  thumbnail: "/abhishek-traders-thumbnail.jpg",
   thumbnailAlt: "Abhishek Traders AI advertisement",
   tone: "field",
   orientation: "portrait",
