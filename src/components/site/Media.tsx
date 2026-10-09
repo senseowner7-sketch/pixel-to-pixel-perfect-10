@@ -117,16 +117,47 @@ export function ProjectMedia({
     return () => io.disconnect();
   }, [autoPlay]);
 
-  // Instagram Reels and posts
+  
+  // Instagram projects: clickable thumbnail
   if (project.mediaType === "instagram" && project.instagramUrl) {
     return (
-      <InstagramMedia
-        url={project.instagramUrl}
-        title={project.title}
-        className={className}
-      />
+      <a
+        href={project.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Watch ${project.title} on Instagram`}
+        className={cn(
+          "group relative block h-full w-full overflow-hidden bg-neutral-950",
+          className
+        )}
+      >
+        {project.thumbnail ? (
+          <img
+            src={project.thumbnail}
+            alt={project.thumbnailAlt ?? project.title}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <Placeholder
+            tone={project.tone}
+            title={label ?? project.title}
+          />
+        )}
+
+        <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/35">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-black/50 text-3xl text-white backdrop-blur-sm transition-transform group-hover:scale-110">
+            ▶
+          </span>
+        </div>
+
+        <span className="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-widest text-white drop-shadow-lg">
+          Watch on Instagram ↗
+        </span>
+      </a>
     );
   }
+
 
   // Direct video files
   if (project.videoUrl) {
