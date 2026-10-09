@@ -78,6 +78,3 @@ export function PoliticalSection({ n = "08" }: { n?: string }) {
   );
 }
 
-export function ContactBlock() {
-  return null;
-}
