@@ -11,13 +11,13 @@ const darkTones: PlaceholderTone[] = ["coffee", "music", "sport", "ink", "field"
 /** Renders a project's primary visual: video > image > tasteful placeholder. Never a broken embed. */
 export function ProjectMedia({
   project, className, label, autoPlay = false,
-}: { project: Project; className?: string; label?: string; autoPlay?: boolean }) {
+}: { project: Project; className?: string | undefined; label?: string | undefined; autoPlay?: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el || !autoPlay) return;
-    const io = new IntersectionObserver(([e]) => {
+    const io = new IntersectionObserver(([e]) => { if (!e) return;
       setInView(e.isIntersecting);
       if (e.isIntersecting) el.play().catch(() => {});
       else el.pause();
@@ -38,7 +38,7 @@ export function ProjectMedia({
   return <Placeholder tone={project.tone} title={label ?? project.title} className={className} />;
 }
 
-export function Placeholder({ tone, title, className }: { tone: PlaceholderTone; title: string; className?: string }) {
+export function Placeholder({ tone, title, className }: { tone: PlaceholderTone; title: string; className?: string | undefined }) {
   const dark = darkTones.includes(tone);
   return (
     <div role="img" aria-label={`${title} — artwork coming soon`} style={{ backgroundImage: toneVar[tone] }}
@@ -53,7 +53,7 @@ export function Reveal({ children, className, as: Tag = "div" }: { children: Rea
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { threshold: 0.12 });
+    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { threshold: 0.12 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
