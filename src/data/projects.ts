@@ -99,7 +99,7 @@ export const projects: Project[] = [
   },
   {
     id: "p06", slug: "ab-de-villiers", title: "AB de Villiers", subtitle: "Audacity. Brilliance. Destruction.",
-    year: 2025, category: "Editorial", label: "Sports Editorial", featured: false, displayOrder: 6, status: "hidden",
+    year: 2025, category: "Editorial", label: "Sports Editorial", featured: false, displayOrder: 6, status: "published",
     tone: "ink", orientation: "landscape", mediaType: "placeholder",
     description: "Three words, three frames, one impossible batter.",
     roles: ["Art Direction", "Copy"], tools: ["Midjourney", "Photoshop"], gallery: [], caseStudyEnabled: false,
