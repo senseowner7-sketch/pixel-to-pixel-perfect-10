@@ -118,45 +118,33 @@ export function ProjectMedia({
   }, [autoPlay]);
 
   
-  // Instagram projects: clickable thumbnail
+ 
+  // Instagram projects: display thumbnail.
+  // WorkGrid handles opening the Instagram link.
   if (project.mediaType === "instagram" && project.instagramUrl) {
-    return (
-      <a
-        href={project.instagramUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Watch ${project.title} on Instagram`}
-        className={cn(
-          "group relative block h-full w-full overflow-hidden bg-neutral-950",
-          className
-        )}
-      >
-        {project.thumbnail ? (
-          <img
-            src={project.thumbnail}
-            alt={project.thumbnailAlt ?? project.title}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <Placeholder
-            tone={project.tone}
-            title={label ?? project.title}
-          />
-        )}
-
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/35">
-          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-black/50 text-3xl text-white backdrop-blur-sm transition-transform group-hover:scale-110">
+    return project.thumbnail ? (
+      <div className={cn("relative h-full w-full overflow-hidden", className)}>
+        <img
+          src={project.thumbnail}
+          alt={project.thumbnailAlt ?? project.title}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-black/50 text-3xl text-white backdrop-blur-sm">
             ▶
           </span>
         </div>
-
-        <span className="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-widest text-white drop-shadow-lg">
-          Watch on Instagram ↗
-        </span>
-      </a>
+      </div>
+    ) : (
+      <Placeholder
+        tone={project.tone}
+        title={label ?? project.title}
+        className={className}
+      />
     );
   }
+
 
 
   // Direct video files
