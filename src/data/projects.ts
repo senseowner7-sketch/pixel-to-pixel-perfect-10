@@ -53,6 +53,31 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  
+  {
+    id: "p13",
+    slug: "waiting-to-feel-ready",
+    title: "Waiting to Feel Ready Is a Trap",
+    subtitle: "An 8-Slide Psychology Carousel",
+    year: 2026,
+    category: "Editorial",
+    label: "Instagram Carousel",
+    featured: false,
+    displayOrder: 2,
+    status: "published",
+    thumbnail: "/waiting-to-feel-ready.png",
+    thumbnailAlt: "Waiting to Feel Ready Is a Trap — carousel cover",
+    tone: "paper",
+    orientation: "portrait",
+    mediaType: "instagram",
+    instagramUrl: "https://www.instagram.com/p/DcvBzyTDWsg/",
+    description: "An eight-slide visual story exploring why waiting to feel ready can prevent us from taking action.",
+    roles: ["Concept", "Copywriting", "Visual Storytelling"],
+    tools: [],
+    gallery: [],
+    caseStudyEnabled: false,
+  },
+
 
   
 {
