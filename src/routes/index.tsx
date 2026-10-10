@@ -47,31 +47,48 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED */}
-      {featured && (
-        <section className="bg-ink py-20 text-ink-foreground md:py-28" aria-labelledby="feat-h">
-          <div className="container-x">
-            <p className="label text-ink-muted"><span className="text-accent">02</span> · Featured — {featured.label}</p>
-            <Reveal className="mt-8">
-              <Link to="/work/$slug" params={{ slug: featured.slug }} className="group relative block aspect-video overflow-hidden">
-                <div className="h-full w-full transition-transform duration-1000 group-hover:scale-[1.02]"><ProjectMedia project={featured} autoPlay /></div>
-                <span className="label absolute right-5 top-5 bg-ink px-3 py-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">Watch film →</span>
-              </Link>
-            </Reveal>
-            <div className="mt-10 grid gap-10 md:grid-cols-12">
-              <h2 id="feat-h" className="display text-5xl md:col-span-5 md:text-7xl">{featured.title}<br /><span className="text-ink-muted">{featured.subtitle}</span></h2>
-              <div className="md:col-span-4">
-                <p className="text-lg">{featured.description}</p>
-                <Link to="/work/$slug" params={{ slug: featured.slug }} className="label mt-8 inline-block border-b border-accent pb-1 text-accent">View case study →</Link>
-              </div>
-              <dl className="label grid grid-cols-2 gap-6 text-ink-muted md:col-span-3 md:grid-cols-1">
-                <div><dt className="text-accent">Role</dt><dd className="mt-2 space-y-1 text-ink-foreground">{featured.roles.map((r) => <div key={r}>{r}</div>)}</dd></div>
-                <div><dt className="text-accent">Tools</dt><dd className="mt-2 space-y-1">{featured.tools.map((r) => <div key={r}>{r}</div>)}</dd></div>
-              </dl>
+      
+      {/* FEATURED — COMPETITION AI AVATAR */}
+      <section
+        className="bg-ink py-16 text-ink-foreground md:py-24"
+        aria-labelledby="competition-h"
+      >
+        <div className="container-x grid items-center gap-10 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <p className="label text-accent">
+              01 · Featured Project / AI Avatar
+            </p>
+
+            <h2
+              id="competition-h"
+              className="display mt-8 text-5xl md:text-7xl"
+            >
+              Why Competition Matters.
+            </h2>
+
+            <p className="mt-8 max-w-lg text-lg text-ink-muted">
+              An AI-avatar-led video exploring how competition
+              drives innovation and progress.
+            </p>
+          </div>
+
+          <div className="mx-auto w-full max-w-[360px] md:col-span-5">
+            <div className="relative aspect-[9/16] overflow-hidden bg-black">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/YZRZY0ugnV8"
+                title="Why Competition Matters — AI Avatar Video"
+                loading="lazy"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+
 
       {/* SELECTED AI WORK */}
       <section id="work" className="container-x scroll-mt-16 py-24 md:py-32">
