@@ -65,7 +65,7 @@ export const projects: Project[] = [
     featured: false,
     displayOrder: 2,
     status: "published",
-    thumbnail: "/waiting-to-feel-ready.png",
+    thumbnail: "/waiting-to-feel-ready.jpg.jpeg",
     thumbnailAlt: "Waiting to Feel Ready Is a Trap — carousel cover",
     tone: "paper",
     orientation: "portrait",
