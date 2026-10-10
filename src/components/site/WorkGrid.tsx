@@ -38,9 +38,7 @@ export function ProjectCard({ p, index }: { p: Project; index: number }) {
   
   // Instagram media already has its own clickable link.
   // Avoid placing an anchor inside another anchor.
-  if (p.mediaType === "instagram" && p.instagramUrl) {
-    return <div className={cls}>{inner}</div>;
-  }
+ 
 
   if (p.caseStudyEnabled) {
     return (
