@@ -40,6 +40,21 @@ export function ProjectCard({ p, index }: { p: Project; index: number }) {
   // Avoid placing an anchor inside another anchor.
  
 
+  // Open visual artwork at full resolution
+  if (p.mediaType === "image" && p.thumbnail) {
+    return (
+      <a
+        href={p.thumbnail}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cls}
+        aria-label={`View ${p.title} artwork`}
+      >
+        {inner}
+      </a>
+    );
+  }
+
   if (p.caseStudyEnabled) {
     return (
       <Link
